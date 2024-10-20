@@ -1,0 +1,13 @@
+{% extends 'reservations/base.html' %}
+
+{% block content %}
+<h1>Room {{ room.room_number }}</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ room.category.name }}</h5>
+        <p class="card-text">Base Price: ${{ room.category.base_price }}</p>
+        <a href="{% url 'reservation_create' room.id %}" class="btn btn-primary">Make Reservation</a>
+    </div>
+</div>
+{% endblock %}

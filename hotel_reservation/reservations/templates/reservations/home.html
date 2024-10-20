@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Reservation</title>
+    {% load static %}  <!-- Load the static template tag library -->
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+        .hero {
+            background-image: url('{% static "reservations/images/hotel-background.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu {
+            display: flex;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .welcome {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 64px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .cta-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        .scroll-indicator {
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        .scroll-icon {
+            width: 40px;
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .scroll-icon::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: rotate(45deg) translate(-2px, -2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <header class="header">
+            <div class="logo">Hotel Reservation System</div>
+            <nav class="menu">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'room_list' %}">Rooms</a>
+                <a href="#">Amenities</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+        <div class="hero-content">
+            <div class="welcome">WELCOME TO 5 ⭐ HOTEL</div>
+            <h1 class="title">A Best Place To Stay</h1>
+            <div class="cta-buttons">
+                <a href="{% url 'check_availability' %}" class="cta-button">Check Availability</a>
+                <a href="{% url 'room_list' %}" class="cta-button">Available Rooms</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-icon"></div>
+        </div>
+    </div>
+</body>
+</html>

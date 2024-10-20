@@ -1,4 +1,4 @@
-{% extends 'reservations/base.html' %}
+{% comment %} {% extends 'reservations/base.html' %}
 
 {% block content %}
 <h1>Room {{ room.room_number }}</h1>
@@ -10,4 +10,29 @@
         <a href="{% url 'reservation_create' room.id %}" class="btn btn-primary">Make Reservation</a>
     </div>
 </div>
+{% endblock %} {% endcomment %}
+
+
+
+
+{% extends 'reservations/base.html' %}
+{% block content %}
+<h1>Room {{ room.room_number }}</h1>
+<div class="card mb-4">
+    {% if room.image %}
+    <img src="{{ room.image.url }}" class="card-img-top" alt="{{ room.room_number }}">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ room.category.name }}</h5>
+        <p class="card-text">Base Price: ${{ room.category.base_price }}</p>
+    </div>
+</div>
+
+<h2>Check Availability</h2>
+<form method="post" action="{% url 'check_availability' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="room_id" value="{{ room.id }}">
+    <button type="submit" class="btn btn-primary">Check Availability</button>
+</form>
 {% endblock %}

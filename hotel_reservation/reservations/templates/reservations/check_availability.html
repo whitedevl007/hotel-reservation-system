@@ -1,4 +1,4 @@
-{% extends 'reservations/base.html' %}
+{% comment %} {% extends 'reservations/base.html' %}
 
 {% block content %}
 <h2>Check Availability</h2>
@@ -7,4 +7,20 @@
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Check Availability</button>
 </form>
+{% endblock %} {% endcomment %}
+
+
+
+
+
+{% extends 'reservations/base.html' %}
+
+{% block content %}
+<h1>Check Availability</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Check Availability</button>
+</form>
 {% endblock %}
+

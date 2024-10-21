@@ -56,25 +56,6 @@
             font-weight: bold;
             margin-bottom: 40px;
         }
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .cta-button {
-            padding: 15px 30px;
-            font-size: 18px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .cta-button:hover {
-            background-color: #0056b3;
-        }
         .scroll-indicator {
             text-align: center;
             padding-bottom: 40px;
@@ -113,10 +94,6 @@
         <div class="hero-content">
             <div class="welcome">WELCOME TO 5 ⭐ HOTEL</div>
             <h1 class="title">A Best Place To Stay</h1>
-            <div class="cta-buttons">
-                <a href="{% url 'check_availability' %}" class="cta-button">Check Availability</a>
-                <a href="{% url 'room_list' %}" class="cta-button">Available Rooms</a>
-            </div>
         </div>
         <div class="scroll-indicator">
             <div class="scroll-icon"></div>

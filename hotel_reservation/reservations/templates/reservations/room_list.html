@@ -1,31 +1,7 @@
-
-
 {% extends 'reservations/base.html' %}
 
 {% block content %}
 <h1>Available Rooms</h1>
-<form method="post" action="{% url 'check_availability' %}" class="mb-4">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-md-3">
-            <input type="date" name="start_date" class="form-control" required value="{{ start_date|date:'Y-m-d' }}">
-        </div>
-        <div class="col-md-3">
-            <input type="date" name="end_date" class="form-control" required value="{{ end_date|date:'Y-m-d' }}">
-        </div>
-        <div class="col-md-3">
-            <select name="category" class="form-control" required>
-                <option value="">Select Category</option>
-                {% for category in room_categories %}
-                <option value="{{ category.id }}" {% if category.id == request.POST.category %}selected{% endif %}>{{ category.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="col-md-3">
-            <button type="submit" class="btn btn-primary">Check Availability</button>
-        </div>
-    </div>
-</form>
 <div class="row">
     {% for room in rooms %}
     <div class="col-md-4 mb-4">
@@ -38,7 +14,6 @@
                 <p class="card-text">Category: {{ room.category.name }}</p>
                 <p class="card-text">Base Price: ${{ room.category.base_price }}</p>
                 <a href="{% url 'room_detail' room.id %}" class="btn btn-primary">View Details</a>
-                <a href="{% url 'reservation_create' room.id %}?start_date={{ start_date|date:'Y-m-d' }}&end_date={{ end_date|date:'Y-m-d' }}" class="btn btn-success">Book Now</a>
             </div>
         </div>
     </div>
@@ -47,6 +22,3 @@
     {% endfor %}
 </div>
 {% endblock %}
-
-
-

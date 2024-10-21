@@ -1,16 +1,9 @@
 {% extends 'reservations/base.html' %}
 {% block content %}
-<h1>Make Reservation for Room {{ room.room_number }}</h1>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+<h1>Create Reservation for Room {{ room.room_number }}</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Make Reservation</button>
+    <button type="submit" class="btn btn-primary">Create Reservation</button>
 </form>
 {% endblock %}
